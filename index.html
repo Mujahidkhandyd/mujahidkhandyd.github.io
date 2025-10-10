@@ -1,55 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mujahid Khan | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
-    header { background:#0d6efd; color:white; text-align:center; padding:2rem 1rem; }
-    header h1 { margin:0; font-size:2.2rem; }
-    section { padding:2rem 6%; max-width:900px; margin:auto; }
-    h2 { color:#0d6efd; border-bottom:2px solid #0d6efd; display:inline-block; padding-bottom:5px; }
-    .skills span { display:inline-block; background:#0d6efd; color:white; margin:5px; padding:5px 10px; border-radius:20px; font-size:0.9rem; }
-    .projects > div { background:white; padding:1rem; margin:1rem 0; border-radius:10px; box-shadow:0 0 5px rgba(0,0,0,0.1); }
-    footer { text-align:center; background:#0d6efd; color:white; padding:1rem; margin-top:2rem; }
-    a { color:white; text-decoration:none; }
+    /* ---------- BASIC STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background: #001f3f;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ---------- ANIMATED BACKGROUND ---------- */
+    canvas#bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: linear-gradient(135deg, #001f3f, #004aad);
+    }
+
+    /* ---------- CONTENT ---------- */
+    .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    header p {
+      color: #dcdcdc;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .about, .skills, .contact {
+      margin-top: 60px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 25px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .skill:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .contact a {
+      color: white;
+      text-decoration: none;
+      background: #ff4757;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 8px;
+      transition: background 0.3s;
+    }
+
+    .contact a:hover {
+      background: #e84118;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #dcdcdc;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Mujahid Khan</h1>
-    <p>Web Developer | Designer | Tech Enthusiast</p>
-  </header>
+  <!-- Animated background canvas -->
+  <canvas id="bg-animation"></canvas>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm <strong>Mujahid Khan</strong>, a passionate learner and aspiring developer. I love creating modern websites and exploring AI & automation.</p>
-  </section>
+  <!-- Website content -->
+  <div class="container">
+    <header>
+      <h1>Mujahid Khan</h1>
+      <p>Web Developer | Automation | AI Enthusiast</p>
+    </header>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Google Apps Script</span><span>Automation</span><span>AI Tools</span>
+    <div class="profile">
+      <img src="your-photo.png" alt="Mujahid Khan">
     </div>
-  </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div><h3>Virtual Tech Guide</h3><p>Guide about AI tools, automation & digital growth.</p></div>
-      <div><h3>Attendance Automation</h3><p>Google Apps Script project for daily report automation.</p></div>
-    </div>
-  </section>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm <strong>Mujahid Khan</strong> — I build modern websites, automate tasks using Google Apps Script, and explore AI tools to make work smarter and faster.</p>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:mujahidkhan.mailbox@example.com">mujahidkhan@example.com</a></p>
-    <p>💬 WhatsApp: <a href="https://wa.me/+91 9984734008" target="_blank">Chat with me</a></p>
-  </section>
+    <section class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Google Apps Script</div>
+      <div class="skill">AI Tools</div>
+      <div class="skill">Automation</div>
+    </section>
 
-  <footer>
-    <p>© 2025 Mujahid Khan | All Rights Reserved</p>
-  </footer>
+    <section class="contact">
+      <h2>Contact Me</h2>
+      <a href="mailto:mujahidkhan@example.com">📧 Email</a>
+      <a href="https://wa.me/919876543210?text=Hi%20Mujahid" target="_blank">💬 WhatsApp</a>
+    </section>
+
+    <footer>© 2025 Mujahid Khan | All Rights Reserved</footer>
+  </div>
+
+  <!-- ---------- JavaScript for Background Animation ---------- -->
+  <script>
+    const canvas = document.getElementById('bg-animation');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [];
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Particle setup
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1,
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = 'rgba(255,255,255,0.7)';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
 </body>
 </html>
